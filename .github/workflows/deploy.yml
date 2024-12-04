@@ -18,7 +18,7 @@ jobs:
           php-version: '8.1'
 
       - name: Copy files to server
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
@@ -26,11 +26,11 @@ jobs:
           source: "./*"
           target: "/var/www/html/nathan"
 
-      - name: Restart Apache
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            sudo systemctl restart apache2
+      # - name: Restart Apache
+      #   uses: appleboy/ssh-action@v0.1.5
+      #   with:
+      #     host: ${{ secrets.SERVER_IP }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SERVER_SSH_KEY }}
+      #     script: |
+      #       sudo systemctl restart apache2
