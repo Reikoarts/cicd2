@@ -18,13 +18,13 @@ jobs:
           php-version: '8.1'
 
       - name: Copy files to server
-        uses: appleboy/scp-action@v0.2.0
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "./*"
-          target: "/var/www/html/api"
+          target: "/var/www/html/nathan"
 
       - name: Restart Apache
         uses: appleboy/ssh-action@v0.1.5
